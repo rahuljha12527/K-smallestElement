@@ -1,0 +1,33 @@
+//nlogk time complexity
+
+#include<queue>
+vector<int> kSmallest(int *input, int n, int k) {
+	// Write your code here
+    vector<int> v;
+    priority_queue<int> pq;
+    for(int i=0;i<k;i++){
+        pq.push(input[i]);
+     }
+    
+    
+    for(int i=k;i<n;i++){
+        
+        if(pq.top()>input[i]){
+            pq.pop();
+           // v.push_back(input[i]);
+            pq.push(input[i]);
+        }
+    
+    }
+        
+        while(!pq.empty()){
+            v.push_back(pq.top());
+            pq.pop();
+        }
+        
+    
+    
+    return v;
+    
+    
+}
